@@ -14,6 +14,7 @@ body {
     display: grid;
     grid-template-rows: auto auto 1fr auto;
     min-height: 100vh;
+    transition: background-color 0.3s ease;
 }
 
 header {
@@ -21,6 +22,7 @@ header {
     color: white;
     text-align: center;
     padding: 2rem;
+    transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
 nav {
@@ -33,6 +35,7 @@ nav {
     flex-wrap: wrap;
     gap: 0.5rem;
     width: 100%;
+    transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
 nav a {
@@ -55,7 +58,7 @@ section {
     background-color: #2d2d2d;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, padding 0.3s ease, margin 0.3s ease;
 }
 
 @media (min-width: 768px) {
@@ -164,7 +167,7 @@ h2 {
     padding: 1rem 1.5rem;
     background-color: #3a3a3a;
     border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, padding 0.3s ease;
 }
 
 .timeline-content:hover {
@@ -217,6 +220,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    transition: background-color 0.3s ease;
 }
 
 .hobby-card img {
@@ -288,6 +292,7 @@ textarea {
     font-size: 1rem;
     background-color: #3a3a3a;
     color: #e0e0e0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 input[type="text"]:focus,
@@ -307,4 +312,206 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
+}
+
+/* Responsive Design - Mobile First Approach */
+
+/* Small phones - up to 480px */
+@media (max-width: 480px) {
+    body {
+        background-color: #3a3a3a !important;
+    }
+
+    header, nav, footer {
+        background-color: #4a4a4a !important;
+    }
+
+    section {
+        background-color: #4a4a4a !important;
+    }
+
+    .timeline-content,
+    .hobby-card,
+    .education-card,
+    .skill-category,
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        background-color: #5a5a5a !important;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    nav a {
+        padding: 0.75rem;
+        margin: 0;
+        width: 100%;
+    }
+
+    section {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .education-timeline {
+        padding: 0 0.5rem;
+    }
+
+    .education-timeline::before {
+        left: 0;
+        transform: none;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding-left: 2rem;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        grid-template-areas: "content";
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        text-align: left;
+        border-left: 4px solid #e0e0e0;
+        border-right: none;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content:hover,
+    .timeline-item:nth-child(even) .timeline-content:hover {
+        transform: translateX(5px);
+    }
+
+    .timeline-marker {
+        left: -0.5rem;
+        transform: none;
+    }
+
+    .timeline-content {
+        padding: 0.75rem;
+    }
+
+    .hobby-card img[src*="mybass"] {
+        width: 80%;
+    }
+}
+
+/* Tablets - 481px to 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        background-color: #2a2a2a !important;
+    }
+
+    header, nav, footer {
+        background-color: #353535 !important;
+    }
+
+    section {
+        background-color: #353535 !important;
+    }
+
+    .timeline-content,
+    .hobby-card,
+    .education-card,
+    .skill-category,
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        background-color: #454545 !important;
+    }
+
+    header {
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav a {
+        padding: 0.6rem 0.8rem;
+        margin: 0.2rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    .education-timeline {
+        padding: 0 1rem;
+    }
+
+    .education-timeline::before {
+        left: 0;
+        transform: none;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding-left: 2.5rem;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        grid-template-areas: "content";
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        text-align: left;
+        border-left: 4px solid #e0e0e0;
+        border-right: none;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content:hover,
+    .timeline-item:nth-child(even) .timeline-content:hover {
+        transform: translateX(5px);
+    }
+
+    .timeline-marker {
+        left: -0.5rem;
+        transform: none;
+    }
+
+    .hobby-card img[src*="mybass"] {
+        width: 60%;
+    }
+}
+
+/* Larger tablets and small desktops - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .education-timeline {
+        max-width: 700px;
+    }
+
+    .timeline-item {
+        gap: 1.5rem;
+    }
+
+    .hobby-card img[src*="mybass"] {
+        width: 55%;
+    }
 }
