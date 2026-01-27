@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,23 +7,32 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
     line-height: 1.6;
     color: #e0e0e0;
     background-color: #1e1e1e;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
 }
 
 header {
-    background-color: #2c3e50;
+    background-color: #2d2d2d;
     color: white;
     text-align: center;
     padding: 2rem;
 }
 
 nav {
-    background-color: #34495e;
+    background-color: #2d2d2d;
     padding: 1rem;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
 }
 
 nav a {
@@ -37,16 +48,34 @@ nav a:hover {
 }
 
 section {
-    max-width: 800px;
+    max-width: 95%;
+    width: 100%;
     margin: 2rem auto;
     padding: 2rem;
     background-color: #2d2d2d;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    section {
+        max-width: 90%;
+    }
+}
+
+@media (min-width: 1200px) {
+    section {
+        max-width: 1100px;
+    }
+}
+
+section:hover {
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
 }
 
 h2 {
-    color: #64b5f6;
+    color: #e0e0e0;
     margin-bottom: 1rem;
 }
 
@@ -56,10 +85,177 @@ h2 {
     gap: 1rem;
 }
 
+.education-timeline {
+    position: relative;
+    padding: 0 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #e0e0e0, #b0b0b0);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Left side items (odd) */
+.timeline-item:nth-child(odd) {
+    grid-template-areas: "content .";
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    grid-area: content;
+    text-align: right;
+    border-left: none;
+    border-right: 4px solid #e0e0e0;
+}
+
+.timeline-item:nth-child(odd) .timeline-content:hover {
+    transform: translateX(-5px);
+}
+
+/* Right side items (even) */
+.timeline-item:nth-child(even) {
+    grid-template-areas: ". content";
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    grid-area: content;
+    text-align: left;
+    border-left: 4px solid #e0e0e0;
+    border-right: none;
+}
+
+.timeline-item:nth-child(even) .timeline-content:hover {
+    transform: translateX(5px);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: red;
+    border: 3px solid #2d2d2d;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content {
+    padding: 1rem 1.5rem;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    box-shadow: 0 4px 12px rgba(100, 181, 246, 0.2);
+}
+
+.timeline-content h3 {
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: #e0e0e0;
+    margin: 0;
+}
+
 .education-card {
     padding: 1rem;
     background-color: #3a3a3a;
     border-radius: 4px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills-grid > * {
+    flex: 1 1 200px;
+}
+
+.skill-category {
+    padding: 1rem;
+    background-color: #3a3a3a;
+    border-radius: 4px;
+}
+
+.hobby-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.hobby-card {
+    padding: 1rem;
+    background-color: #3a3a3a;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hobby-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.hobby-card img[src*="mybass"] {
+    width: 49%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.image-credit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.image-container:hover .image-credit {
+    opacity: 1;
 }
 
 ul {
@@ -72,14 +268,14 @@ li {
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1rem;
 }
 
 label {
     font-weight: bold;
-    color: #64b5f6;
+    color: #e0e0e0;
 }
 
 input[type="text"],
@@ -98,7 +294,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: #e0e0e0;
 }
 
 textarea {
@@ -106,8 +302,8 @@ textarea {
 }
 
 footer {
-    background-color: #2c3e50;
-    color: white;
+    background-color: #2d2d2d;
+    color: #e0e0e0;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
