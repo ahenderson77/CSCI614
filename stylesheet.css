@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
-:root{
+:root {
     --primary-color: #3498db;
     --secondary-color: #2c3e50;
     --background-color: #1e1e1e;
@@ -9,6 +9,7 @@
     --hover-shadow-color: rgba(255, 0, 0, 0.4);
     --education-element-color: #686666;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -66,7 +67,7 @@ section {
     padding: 2rem;
     background-color: var(--card-background-color);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease, background-color 0.3s ease, padding 0.3s ease, margin 0.3s ease;
 }
 
@@ -92,8 +93,8 @@ h2 {
 }
 
 .education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -118,8 +119,7 @@ h2 {
 .timeline-item {
     position: relative;
     margin-bottom: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 2rem;
 }
 
@@ -129,11 +129,11 @@ h2 {
 
 /* Left side items (odd) */
 .timeline-item:nth-child(odd) {
-    grid-template-areas: "content .";
+    justify-content: flex-start;
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
-    grid-area: content;
+    flex: 0 1 calc(50% - 1rem);
     text-align: right;
     border-left: none;
     border-right: 4px solid var(--text-color);
@@ -145,11 +145,11 @@ h2 {
 
 /* Right side items (even) */
 .timeline-item:nth-child(even) {
-    grid-template-areas: ". content";
+    justify-content: flex-end;
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-    grid-area: content;
+    flex: 0 1 calc(50% - 1rem);
     text-align: left;
     border-left: 4px solid var(--text-color);
     border-right: none;
@@ -205,7 +205,7 @@ h2 {
     gap: 1rem;
 }
 
-.skills-grid > * {
+.skills-grid>* {
     flex: 1 1 200px;
 }
 
@@ -281,8 +281,8 @@ li {
 }
 
 form {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
@@ -354,7 +354,9 @@ footer {
         background-color: #3a3a3a !important;
     }
 
-    header, nav, footer {
+    header,
+    nav,
+    footer {
         background-color: #4a4a4a !important;
     }
 
@@ -414,18 +416,19 @@ footer {
     }
 
     .timeline-item {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: 0.5rem;
         padding-left: 2rem;
     }
 
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
-        grid-template-areas: "content";
+        justify-content: flex-start;
     }
 
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
+        flex: 1;
         text-align: left;
         border-left: 4px solid #e0e0e0;
         border-right: none;
@@ -456,7 +459,9 @@ footer {
         background-color: #2a2a2a !important;
     }
 
-    header, nav, footer {
+    header,
+    nav,
+    footer {
         background-color: #353535 !important;
     }
 
@@ -501,18 +506,19 @@ footer {
     }
 
     .timeline-item {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: 1rem;
         padding-left: 2.5rem;
     }
 
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
-        grid-template-areas: "content";
+        justify-content: flex-start;
     }
 
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
+        flex: 1;
         text-align: left;
         border-left: 4px solid #e0e0e0;
         border-right: none;
