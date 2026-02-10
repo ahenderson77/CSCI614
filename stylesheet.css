@@ -382,6 +382,29 @@ button[type="submit"]:active {
     background-color: #2a2a2a;
 }
 
+.game-button {
+    padding: 0.75rem 2rem;
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    border: 2px solid #555;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+.game-button:hover {
+    background-color: var(--secondary-color);
+    border-color: #777;
+    transform: translateY(-2px);
+}
+
+.game-button:active {
+    transform: translateY(0);
+    background-color: #2a2a2a;
+}
+
 #snake-game-container {
     margin-top: 1rem;
     background-color: var(--card-background-color);
