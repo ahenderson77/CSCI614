@@ -338,6 +338,59 @@ button[type="submit"]:active {
     background-color: #2a2a2a;
 }
 
+/* Game Section Styles */
+.game-snake {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.game-snake h2 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    align-self: flex-start;
+}
+
+.game-snake p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#play-snake {
+    padding: 0.75rem 2rem;
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    border: 2px solid #555;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    /*margin-top: 30vh;*/
+}
+
+#play-snake:hover {
+    background-color: var(--secondary-color);
+    border-color: #777;
+    transform: translateY(-2px);
+}
+
+#play-snake:active {
+    transform: translateY(0);
+    background-color: #2a2a2a;
+}
+
+#snake-game-container {
+    margin-top: 1rem;
+    background-color: var(--card-background-color);
+    border-radius: 4px;
+    padding: 1rem;
+    min-height: 400px;
+    transition: background-color 0.3s ease;
+}
+
 footer {
     background-color: var(--card-background-color);
     color: var(--text-color);
@@ -371,6 +424,11 @@ footer {
     input[type="text"],
     input[type="email"],
     textarea {
+        background-color: #5a5a5a !important;
+    }
+
+    #play-snake,
+    #snake-game-container {
         background-color: #5a5a5a !important;
     }
 
@@ -476,6 +534,11 @@ footer {
     input[type="text"],
     input[type="email"],
     textarea {
+        background-color: #454545 !important;
+    }
+
+    #play-snake,
+    #snake-game-container {
         background-color: #454545 !important;
     }
 
