@@ -120,7 +120,9 @@ class SnakeGame {
     
     drawFood() {
         this.ctx.fillStyle = this.foodColor;
+        this.ctx.strokeStyle = this.foodBorderColor;
         this.ctx.fillRect(this.foodX, this.foodY, this.unitSize, this.unitSize);
+        this.ctx.strokeRect(this.foodX, this.foodY, this.unitSize, this.unitSize);
     }
     
     moveSnake() {
